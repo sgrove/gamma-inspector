@@ -38,8 +38,8 @@ Then in your `project.clj`, under the dev `:cljsbuild`, add `:source-paths ["yak
 
 ```clojure
 
-:foreign-libs [{:file "yaks/gamma-inspector/resources/public/js/vendor/fixed-data-table/fixed-data-table.js"
-                                                        :provides ["facebook.react.fixed-data-table"]}]
+:foreign-libs [{:file     "yaks/gamma-inspector/resources/public/js/vendor/fixed-data-table/fixed-data-table.js"
+                :provides ["facebook.react.fixed-data-table"]}]
 
 ```
 
