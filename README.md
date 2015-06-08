@@ -23,6 +23,27 @@ Future higher-level goals:
  * Visualize a scene in preview using (currently non-existent) semantic information from the program inputs.
  * Diff frames by their states for debugging.
  
+## Usage
+
+```clojure
+(ns example
+  (:require [gamma-inspector.drivers.inspector :as inspector]
+            [gamma-inspector.components.inspector :as component]
+            [om.core :as om :include-macros true]
+            [om.dom :as dom :include-macros true]))
+
+;; Create the inspector driver. It can be used just like the basic
+;; Gamma driver, with the twos exceptions that you'll want to
+;; 1. (inspector/capture-next-frame! driver)
+;; 2. Do all of your drawing for the frame
+;; 3. (inspector/end-frame! driver)
+
+(let [driver (inspector/driver gl)]
+  ...)
+  
+;; Mount the inspector component somewhere
+(om/build component/inspector-com driver)
+```
 
 ## Setup
 
