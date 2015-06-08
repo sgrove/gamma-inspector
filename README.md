@@ -1,6 +1,6 @@
 # gamma-inspector
 
-A heavily, heavily WIP inspector tool for Gamma Driver. More of a PoC than a useful tool at this point.
+A heavily, heavily WIP inspector tool for Gamma Driver. More of a PoC than a useful tool at this point. Here's [an example video](https://www.youtube.com/watch?v=Gbpe3hEYKgg&t=2m35s) of what it can do.
 
 ## Overview
 
