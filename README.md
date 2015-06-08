@@ -1,37 +1,52 @@
 # gamma-inspector
 
-FIXME: Write a one-line description of your library/project.
+A heavily, heavily WIP inspector tool for Gamma Driver. More of a PoC than a useful tool at this point.
 
 ## Overview
 
-FIXME: Write a paragraph about the library/project and highlight its goals.
+The low level goals (many initially cribbed from the [WebGL Inspector](https://github.com/benvanik/WebGL-Inspector):
+
+ * Capture (individual, and burst) frame traces
+   * Allow filtering of commands
+   * Summarize statistic for a frame (draw call count, resources created, render time, etc.)
+   * Replay frame draw or individual draw calls
+ * Inspect all buffers, visualizing the data inside based off of the draw call last used for it.
+ * Visualize textures that have been used in the lifetime of a GL context
+ * Inspect program compilation and input
+ * For all of the above resources, see how they were used/referenced within a frame
+
+Future higher-level goals:
+
+ * Visualize the state of the WebGL state-machine at a point in time, including what vertexAttribs were enabled, what buffers/textures were bound to them, and the state of the uniforms at draw-call time.
+ * Allow several meshes that have been rendered (one or more times) to be combined together and serialized out to a glTF or transit filel
+ * Create texture atlases from uploaded textures.
+ * Visualize a scene in preview using (currently non-existent) semantic information from the program inputs.
+ * Diff frames by their states for debugging.
+ 
 
 ## Setup
 
-First-time Clojurescript developers, add the following to your bash .profile:
+Very alpha right now, and will be better once the cljsjs version of Facebook Data Table is fixed (watch [this issue](https://github.com/cljsjs/packages/issues). In the project you wish to use Gamma Inspector,
 
-    LEIN_FAST_TRAMPOLINE=y
-    export LEIN_FAST_TRAMPOLINE
-    alias cljsbuild="lein trampoline cljsbuild $@"
+```
+mkdir yaks
+cd yaks
+git clone git@github.com:sgrove/gamma-inspector.git
+```
 
-To avoid compiling ClojureScript for each build, AOT Clojurescript locally in your project with the following:
+Then in your `project.clj`, under the dev `:cljsbuild`, add `:source-paths ["yaks/gamma-inspector/src"]`. Under the `:compiler` options for that build, add in an addition `:foreign-libs` entry:
 
-    lein trampoline run -m clojure.main
-    user=> (compile 'cljs.closure)
-    user=> (compile 'cljs.core)
+```clojure
 
-Subsequent builds can use:
+:foreign-libs [{:file "yaks/gamma-inspector/resources/public/js/vendor/fixed-data-table/fixed-data-table.js"
+                                                        :provides ["facebook.react.fixed-data-table"]}]
 
-    lein cljsbuild auto
+```
 
-Clean project specific out:
-
-     lein clean
-
-For more info, read [Waitin'](http://swannodette.github.io/2014/12/22/waitin/).
+Finally, wget and include [the css](https://raw.githubusercontent.com/facebook/fixed-data-table/master/dist/fixed-data-table.css) in your site somewhere 
 
 ## License
 
-Copyright © 2014 FIXME
+Copyright © 2015 Sean Grove
 
 Distributed under the Eclipse Public License either version 1.0 or (at your option) any later version.
