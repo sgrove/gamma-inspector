@@ -4,7 +4,7 @@ A heavily, heavily WIP inspector tool for Gamma Driver. More of a PoC than a use
 
 ## Overview
 
-The low level goals (many initially cribbed from the [WebGL Inspector](https://github.com/benvanik/WebGL-Inspector):
+The low level goals (many initially cribbed from the [WebGL Inspector](https://github.com/benvanik/WebGL-Inspector)):
 
  * Capture (individual, and burst) frame traces
    * Allow filtering of commands
