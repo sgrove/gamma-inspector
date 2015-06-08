@@ -1,7 +1,6 @@
-(ns gampg.drivers.component
+(ns gamma-inspector.components.inspector
   (:require [clojure.data :as clojure-data]
             [clojure.string :as string]
-            ;;[cljsjs.fixed-data-table]
             [facebook.react.fixed-data-table]
             [fipp.edn :as fipp]
             [gamma-driver.drivers.basic :as basic]

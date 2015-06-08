@@ -1,4 +1,4 @@
-(ns gampg.drivers.inspector
+(ns gamma-inspector.drivers.inspector
   (:require
    [gamma-driver.drivers.basic :as basic]
    [gamma-driver.api :as gd]
